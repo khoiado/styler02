@@ -67,7 +67,7 @@ export default function ElevatedCards() {
                     </View>
                 </View>
                 <View>
-                    <Text style = {styles.textColor}>CS and Marketing</Text>
+                    <Text style = {styles.textColor}></Text>
                     <Text style = {styles.textColor}>Sugar Land, TX - USA</Text>
                 </View>
             </View>
