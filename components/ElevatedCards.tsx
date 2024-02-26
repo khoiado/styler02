@@ -67,7 +67,7 @@ export default function ElevatedCards() {
                     </View>
                 </View>
                 <View>
-                    <Text style = {styles.textColor}></Text>
+                    <Text style = {styles.textColor}>test</Text>
                     <Text style = {styles.textColor}></Text>
                 </View>
             </View>
