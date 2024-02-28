@@ -4,11 +4,11 @@ import {
   View, Text, SafeAreaView, ScrollView, StyleSheet
 } from 'react-native'
 
-import ElevatedCards from './components/ElevatedCards'
-import FancyCard from './components/FancyCard'
+import ElevatedCards from './components/TeamMembers'
+import FancyCard from './components/FeaturedJobs'
 import ActionCards from './components/ActionCards'
 import ContactList from './components/ContactList'
-import FlatCards from './components/FlatCards'
+import FlatCards from './components/HeadingCompany'
 
 function App(){
   return(

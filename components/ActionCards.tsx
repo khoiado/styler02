@@ -5,35 +5,50 @@ export default function ActionCards() {
     function openWebsite(websiteLink : string){
         Linking.openURL(websiteLink)
     }
+
+    const socialMedia = [
+        {
+            id: '1',
+            name: 'Github',
+            image: require('/Users/khoi/react-native/styler02/assets/teamMembersPics/GitHub-Mark-ea2971cee799.png'),
+            link: 'https://github.com/khoiado',
+            description: 'Check out our projects!'
+        },
+        {
+            id: '2',
+            name: 'LinkedIn',
+            image: require('/Users/khoi/react-native/styler02/assets/teamMembersPics/circle-linkedin-512.webp'),
+            link: 'Coming soon',
+            description: 'Visit our page!'
+        },
+        {
+            id: '3',
+            name: 'Instagram',
+            image: require('/Users/khoi/react-native/styler02/assets/teamMembersPics/instagram.jpg'),
+            link: 'Coming soon',
+            description: 'Follow us!'
+        }
+    ]
+
   return (
     <View>
-      <Text style = {styles.headingText}>Blog Card</Text>
-      <View style = {[styles.card, styles.elevatedCard]}>
-        <View style = {styles.headingContainer}>
-            <Text style = {styles.headerText}> Banana</Text>
+      <Text style = {styles.headingText}>Find us here!</Text>
+      {socialMedia.map((media) => (
+        <View style = {styles.container}>
+            <View key = {media.id} style = {[styles.bigCard, styles.container]}>
+                <Image
+                    source = {media.image}
+                    style = {styles.socialMediaImage}
+                />
+            <View>
+                <TouchableOpacity 
+                    onPress = {() => openWebsite(media.link)}>
+                        <Text style = {styles.socialLinks}>{media.description}</Text>
+                </TouchableOpacity>
+            </View>
+            </View>
         </View>
-            <Image
-            source = {{
-                uri : 'https://gorillafoundation.nl/wp-content/uploads/2016/01/leefgebied-gorilla.jpg'
-            }}
-            style = {styles.cardImage}
-            />
-            <View style = {styles.bodyContainer}>
-                <Text numberOfLines={3}>
-                    Gorillas like bananas. blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
-                </Text>
-            </View>
-            <View style = {styles.footerContainer}>
-                <TouchableOpacity 
-                onPress = {() => openWebsite('https://www.worldwildlife.org/species/mountain-gorilla')}>
-                    <Text style = {styles.socialLinks}> Read More </Text>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                onPress = {() => openWebsite('https://www.worldwildlife.org/species/mountain-gorilla')}>
-                    <Text style = {styles.socialLinks}> Follow Me </Text>
-                </TouchableOpacity>
-            </View>
-      </View>
+    ))}
     </View>
   )
 }
@@ -42,55 +57,52 @@ const styles = StyleSheet.create({
     headingText : {
         fontSize : 24,
         fontWeight: 'bold',
-        paddingHorizontal : 8
+        paddingHorizontal : 8,
+        color: '#000000'
     },
-    card: {
-        width : 350,
-        height : 360,
-        borderRadius: 6,
-        marginVertical : 12,
-        marginHorizontal : 16
+    bigCard:{
+        backgroundColor: '#2c3e50',
+        width: 370,
+        height: 100,
+        borderRadius: 30,
+        margin: 8,
     },
-    elevatedCard: {
-        backgroundColor: '#eo7c24',
-        elevation: 3,
-        shadowOffset: {
-            width: 1,
-            height: 1
-          },
-          shadowColor: '#333',
-          shadowOpacity: 0.4
-    },
-    headingContainer : {
-        height : 40,
+    container:{
+        flex: 1,
         flexDirection: 'row',
-        justifyContent : 'center',
         alignItems: 'center'
-    },
-    headerText : {
-        color : '#000000',
-        fontSize : 16,
-        fontWeight: '600'
-    },
-    cardImage : {
-        height: 190
-    },
-    bodyContainer : {
-        padding: 10
-    },
-    footerContainer : {
-        padding: 8,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
     },
     socialLinks: {
         fontSize: 16,
         color: '#000000',
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff',
         paddingHorizontal: 20,
         paddingVertical: 6,
-        borderRadius: 6
+        borderRadius: 6,
+        margin: 8
+    },
+    socialMediaImage:{
+        height: 50,
+        width: 50,
+        borderRadius: 10,
+        margin: 8
+    },
+    socialMediaImageGitHub:{
+        height: 50,
+        width: 50,
+        borderRadius: 10,
+        margin: 8
+    },
+    socialMediaImageLinkedIn:{
+        height: 50,
+        width: 50,
+        borderRadius: 10,
+        margin: 8
+    },
+    socialMediaImageInstagram:{
+        height: 40,
+        width: 40,
+        borderRadius: 10,
+        margin: 8
     }
-
 })
