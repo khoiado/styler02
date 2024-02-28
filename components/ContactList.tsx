@@ -47,6 +47,8 @@ export default function ContactList() {
         }
       ];
 
+      contacts.map((contact) => {console.log(contact.imageLocation)})
+
       /*
       console.log(contacts.map((contact) => (contact.name + ", status: " + contact.status)));
       console.log(contacts.map((contact) => (contact.uid)));
@@ -74,11 +76,14 @@ export default function ContactList() {
       scrollEnabled={false}
       >
         {contacts.map((information) => (
-          <View key={information.uid} style={styles.userCard}>
+          <View key={information.uid} style={styles.userCard} removeClippedSubviews = {true}>
             <Image
               source={information.imageLocation}
               style={styles.userImage}
-            />
+              onError = {(error) => {
+                console.log(error)
+              }}
+            /> 
             <View>
               <Text style={styles.userName}>{information.name}</Text>
               <Text style={styles.userStatus}>{information.status}</Text>

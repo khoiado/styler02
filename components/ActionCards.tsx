@@ -2,9 +2,6 @@ import { StyleSheet, Text, View, Linking, Image, TouchableOpacity } from 'react-
 import React from 'react'
 
 export default function ActionCards() {
-    function openWebsite(websiteLink : string){
-        Linking.openURL(websiteLink)
-    }
 
     const socialMedia = [
         {
@@ -42,7 +39,7 @@ export default function ActionCards() {
                 />
             <View>
                 <TouchableOpacity 
-                    onPress = {() => openWebsite(media.link)}>
+                    onPress = {() => Linking.openURL(media.link)}>
                         <Text style = {styles.socialLinks}>{media.description}</Text>
                 </TouchableOpacity>
             </View>
